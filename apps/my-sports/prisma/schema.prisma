@@ -1,0 +1,100 @@
+datasource mongo {
+  provider = "mongodb"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  accounts        Account[]
+  athlete         Player?       @relation(fields: [athleteId], references: [id])
+  athleteId       String?
+  competitions    Competition[] @relation(fields: [competitionsIds], references: [id])
+  competitionsIds String[]      @mongo.ObjectId
+  createdAt       DateTime      @default(now())
+  firstName       String?
+  id              String        @id @default(auto()) @map("_id") @mongo.ObjectId
+  lastName        String?
+  password        String
+  roles           Json
+  sponsors        Sponsor[]     @relation(fields: [sponsorsIds], references: [id])
+  sponsorsIds     String[]      @mongo.ObjectId
+  starts          Json?         @unique
+  team            Team?         @relation(fields: [teamId], references: [id])
+  teamId          String?
+  updatedAt       DateTime      @updatedAt
+  username        String        @unique
+  vote            Json?         @unique
+}
+
+model Team {
+  accounts        Account       @relation(fields: [accountsId], references: [id])
+  accountsId      String        @unique
+  athlete         Player[]      @relation(fields: [athleteIds], references: [id])
+  athleteIds      String[]      @unique @mongo.ObjectId
+  competitions    Competition[] @relation(fields: [competitionsIds], references: [id])
+  competitionsIds String[]      @unique @mongo.ObjectId
+  createdAt       DateTime      @default(now())
+  id              String        @id @default(auto()) @map("_id") @mongo.ObjectId
+  sponsors        Sponsor[]
+  updatedAt       DateTime      @updatedAt
+  users           User[]
+}
+
+model Competition {
+  accounts   Account   @relation(fields: [accountsId], references: [id])
+  accountsId String    @unique
+  athlete    Player[]  @relation(fields: [athleteIds], references: [id])
+  athleteIds String[]  @unique @mongo.ObjectId
+  createdAt  DateTime  @default(now())
+  id         String    @id @default(auto()) @map("_id") @mongo.ObjectId
+  sponsors   Sponsor[]
+  team       Team[]    @relation(fields: [teamIds], references: [id])
+  teamIds    String[]  @unique @mongo.ObjectId
+  updatedAt  DateTime  @updatedAt
+  user       User[]    @relation(fields: [userIds], references: [id])
+  userIds    String[]  @unique @mongo.ObjectId
+}
+
+model Account {
+  athlete     Player?
+  competition Competition[]
+  createdAt   DateTime      @default(now())
+  id          String        @id @default(auto()) @map("_id") @mongo.ObjectId
+  team        Team?
+  updatedAt   DateTime      @updatedAt
+  user        User          @relation(fields: [userId], references: [id])
+  userId      String        @unique
+}
+
+model Player {
+  accounts        Account       @relation(fields: [accountsId], references: [id])
+  accountsId      String        @unique
+  competitions    Competition[] @relation(fields: [competitionsIds], references: [id])
+  competitionsIds String[]      @unique @mongo.ObjectId
+  createdAt       DateTime      @default(now())
+  id              String        @id @default(auto()) @map("_id") @mongo.ObjectId
+  sponsors        Sponsor[]
+  starts          Json?
+  teams           Team[]        @relation(fields: [teamsIds], references: [id])
+  teamsIds        String[]      @mongo.ObjectId
+  updatedAt       DateTime      @updatedAt
+  users           User[]
+  votes           Json?
+}
+
+model Sponsor {
+  athlete       Player?      @relation(fields: [athleteId], references: [id])
+  athleteId     String?
+  competition   Competition? @relation(fields: [competitionId], references: [id])
+  competitionId String?
+  createdAt     DateTime     @default(now())
+  id            String       @id @default(auto()) @map("_id") @mongo.ObjectId
+  team          Team?        @relation(fields: [teamId], references: [id])
+  teamId        String?
+  updatedAt     DateTime     @updatedAt
+  user          User[]       @relation(fields: [userIds], references: [id])
+  userIds       String[]     @mongo.ObjectId
+}

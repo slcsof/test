@@ -6,7 +6,19 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "User",
     "action": "create:any",
     "attributes": "*"
@@ -18,7 +30,19 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "User",
     "action": "delete:any",
     "attributes": "*"
@@ -30,7 +54,19 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Team",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Team",
     "action": "read:own",
     "attributes": "*"
@@ -42,13 +78,31 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Team",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
     "resource": "Team",
     "action": "update:any",
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Team",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Team",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Team",
     "action": "delete:any",
     "attributes": "*"
@@ -60,7 +114,19 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Team",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Competition",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Competition",
     "action": "read:own",
     "attributes": "*"
@@ -72,13 +138,31 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Competition",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
     "resource": "Competition",
     "action": "update:any",
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Competition",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Competition",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Competition",
     "action": "delete:any",
     "attributes": "*"
@@ -90,7 +174,19 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Competition",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Account",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Account",
     "action": "read:own",
     "attributes": "*"
@@ -102,13 +198,31 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Account",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
     "resource": "Account",
     "action": "update:any",
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Account",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Account",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Account",
     "action": "delete:any",
     "attributes": "*"
@@ -120,7 +234,19 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Account",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Player",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Player",
     "action": "read:own",
     "attributes": "*"
@@ -132,13 +258,31 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Player",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
     "resource": "Player",
     "action": "update:any",
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Player",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Player",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Player",
     "action": "delete:any",
     "attributes": "*"
@@ -150,7 +294,19 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Player",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Sponsor",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Sponsor",
     "action": "read:own",
     "attributes": "*"
@@ -162,7 +318,19 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Sponsor",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Sponsor",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Sponsor",
     "action": "update:any",
     "attributes": "*"
@@ -174,7 +342,19 @@
     "attributes": "*"
   },
   {
+    "role": "manager",
+    "resource": "Sponsor",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
     "role": "user",
+    "resource": "Sponsor",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
     "resource": "Sponsor",
     "action": "read:any",
     "attributes": "*"

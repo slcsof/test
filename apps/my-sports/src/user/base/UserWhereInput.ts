@@ -14,7 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AccountListRelationFilter } from "../../account/base/AccountListRelationFilter";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { PlayerWhereUniqueInput } from "../../player/base/PlayerWhereUniqueInput";
+import { AthleteWhereUniqueInput } from "../../athlete/base/AthleteWhereUniqueInput";
 import { CompetitionListRelationFilter } from "../../competition/base/CompetitionListRelationFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
@@ -38,15 +38,15 @@ class UserWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => PlayerWhereUniqueInput,
+    type: () => AthleteWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => PlayerWhereUniqueInput)
+  @Type(() => AthleteWhereUniqueInput)
   @IsOptional()
-  @Field(() => PlayerWhereUniqueInput, {
+  @Field(() => AthleteWhereUniqueInput, {
     nullable: true,
   })
-  athlete?: PlayerWhereUniqueInput;
+  athlete?: AthleteWhereUniqueInput;
 
   @ApiProperty({
     required: false,

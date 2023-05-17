@@ -11,7 +11,7 @@ import {
 } from "react-admin";
 
 import { AccountTitle } from "../account/AccountTitle";
-import { PlayerTitle } from "../player/PlayerTitle";
+import { AthleteTitle } from "../athlete/AthleteTitle";
 import { CompetitionTitle } from "../competition/CompetitionTitle";
 import { SponsorTitle } from "../sponsor/SponsorTitle";
 import { UserTitle } from "../user/UserTitle";
@@ -29,11 +29,11 @@ export const TeamCreate = (props: CreateProps): React.ReactElement => {
         </ReferenceInput>
         <ReferenceArrayInput
           source="athlete"
-          reference="Player"
+          reference="Athlete"
           parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
           format={(value: any) => value && value.map((v: any) => v.id)}
         >
-          <SelectArrayInput optionText={PlayerTitle} />
+          <SelectArrayInput optionText={AthleteTitle} />
         </ReferenceArrayInput>
         <ReferenceArrayInput
           source="competitions"

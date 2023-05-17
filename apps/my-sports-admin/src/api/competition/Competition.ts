@@ -1,12 +1,12 @@
 import { Account } from "../account/Account";
-import { Player } from "../player/Player";
+import { Athlete } from "../athlete/Athlete";
 import { Sponsor } from "../sponsor/Sponsor";
 import { Team } from "../team/Team";
 import { User } from "../user/User";
 
 export type Competition = {
   accounts?: Account;
-  athlete?: Array<Player>;
+  athlete?: Array<Athlete>;
   createdAt: Date;
   id: string;
   sponsors?: Array<Sponsor>;

@@ -25,8 +25,8 @@ import { DeleteCompetitionArgs } from "./DeleteCompetitionArgs";
 import { CompetitionFindManyArgs } from "./CompetitionFindManyArgs";
 import { CompetitionFindUniqueArgs } from "./CompetitionFindUniqueArgs";
 import { Competition } from "./Competition";
-import { PlayerFindManyArgs } from "../../player/base/PlayerFindManyArgs";
-import { Player } from "../../player/base/Player";
+import { AthleteFindManyArgs } from "../../athlete/base/AthleteFindManyArgs";
+import { Athlete } from "../../athlete/base/Athlete";
 import { SponsorFindManyArgs } from "../../sponsor/base/SponsorFindManyArgs";
 import { Sponsor } from "../../sponsor/base/Sponsor";
 import { TeamFindManyArgs } from "../../team/base/TeamFindManyArgs";
@@ -167,16 +167,16 @@ export class CompetitionResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => [Player], { name: "athlete" })
+  @graphql.ResolveField(() => [Athlete], { name: "athlete" })
   @nestAccessControl.UseRoles({
-    resource: "Player",
+    resource: "Athlete",
     action: "read",
     possession: "any",
   })
   async resolveFieldAthlete(
     @graphql.Parent() parent: Competition,
-    @graphql.Args() args: PlayerFindManyArgs
-  ): Promise<Player[]> {
+    @graphql.Args() args: AthleteFindManyArgs
+  ): Promise<Athlete[]> {
     const results = await this.service.findAthlete(parent.id, args);
 
     if (!results) {

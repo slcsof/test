@@ -14,7 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AccountUpdateManyWithoutUsersInput } from "./AccountUpdateManyWithoutUsersInput";
 import { ValidateNested, IsOptional, IsString } from "class-validator";
 import { Type } from "class-transformer";
-import { PlayerWhereUniqueInput } from "../../player/base/PlayerWhereUniqueInput";
+import { AthleteWhereUniqueInput } from "../../athlete/base/AthleteWhereUniqueInput";
 import { CompetitionUpdateManyWithoutUsersInput } from "./CompetitionUpdateManyWithoutUsersInput";
 import { IsJSONValue } from "@app/custom-validators";
 import { GraphQLJSON } from "graphql-type-json";
@@ -38,15 +38,15 @@ class UserUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: () => PlayerWhereUniqueInput,
+    type: () => AthleteWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => PlayerWhereUniqueInput)
+  @Type(() => AthleteWhereUniqueInput)
   @IsOptional()
-  @Field(() => PlayerWhereUniqueInput, {
+  @Field(() => AthleteWhereUniqueInput, {
     nullable: true,
   })
-  athlete?: PlayerWhereUniqueInput | null;
+  athlete?: AthleteWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

@@ -27,9 +27,9 @@ import { CompetitionWhereUniqueInput } from "./CompetitionWhereUniqueInput";
 import { CompetitionFindManyArgs } from "./CompetitionFindManyArgs";
 import { CompetitionUpdateInput } from "./CompetitionUpdateInput";
 import { Competition } from "./Competition";
-import { PlayerFindManyArgs } from "../../player/base/PlayerFindManyArgs";
-import { Player } from "../../player/base/Player";
-import { PlayerWhereUniqueInput } from "../../player/base/PlayerWhereUniqueInput";
+import { AthleteFindManyArgs } from "../../athlete/base/AthleteFindManyArgs";
+import { Athlete } from "../../athlete/base/Athlete";
+import { AthleteWhereUniqueInput } from "../../athlete/base/AthleteWhereUniqueInput";
 import { SponsorFindManyArgs } from "../../sponsor/base/SponsorFindManyArgs";
 import { Sponsor } from "../../sponsor/base/Sponsor";
 import { SponsorWhereUniqueInput } from "../../sponsor/base/SponsorWhereUniqueInput";
@@ -239,17 +239,17 @@ export class CompetitionControllerBase {
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @common.Get("/:id/athlete")
-  @ApiNestedQuery(PlayerFindManyArgs)
+  @ApiNestedQuery(AthleteFindManyArgs)
   @nestAccessControl.UseRoles({
-    resource: "Player",
+    resource: "Athlete",
     action: "read",
     possession: "any",
   })
   async findManyAthlete(
     @common.Req() request: Request,
     @common.Param() params: CompetitionWhereUniqueInput
-  ): Promise<Player[]> {
-    const query = plainToClass(PlayerFindManyArgs, request.query);
+  ): Promise<Athlete[]> {
+    const query = plainToClass(AthleteFindManyArgs, request.query);
     const results = await this.service.findAthlete(params.id, {
       ...query,
       select: {
@@ -282,7 +282,7 @@ export class CompetitionControllerBase {
   })
   async connectAthlete(
     @common.Param() params: CompetitionWhereUniqueInput,
-    @common.Body() body: PlayerWhereUniqueInput[]
+    @common.Body() body: AthleteWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       athlete: {
@@ -304,7 +304,7 @@ export class CompetitionControllerBase {
   })
   async updateAthlete(
     @common.Param() params: CompetitionWhereUniqueInput,
-    @common.Body() body: PlayerWhereUniqueInput[]
+    @common.Body() body: AthleteWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       athlete: {
@@ -326,7 +326,7 @@ export class CompetitionControllerBase {
   })
   async disconnectAthlete(
     @common.Param() params: CompetitionWhereUniqueInput,
-    @common.Body() body: PlayerWhereUniqueInput[]
+    @common.Body() body: AthleteWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       athlete: {

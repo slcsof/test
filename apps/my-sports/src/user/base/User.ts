@@ -14,7 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Account } from "../../account/base/Account";
 import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
-import { Player } from "../../player/base/Player";
+import { Athlete } from "../../athlete/base/Athlete";
 import { Competition } from "../../competition/base/Competition";
 import { IsJSONValue } from "@app/custom-validators";
 import { GraphQLJSON } from "graphql-type-json";
@@ -35,12 +35,12 @@ class User {
 
   @ApiProperty({
     required: false,
-    type: () => Player,
+    type: () => Athlete,
   })
   @ValidateNested()
-  @Type(() => Player)
+  @Type(() => Athlete)
   @IsOptional()
-  athlete?: Player | null;
+  athlete?: Athlete | null;
 
   @ApiProperty({
     required: false,

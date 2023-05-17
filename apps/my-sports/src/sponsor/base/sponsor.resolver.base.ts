@@ -27,7 +27,7 @@ import { SponsorFindUniqueArgs } from "./SponsorFindUniqueArgs";
 import { Sponsor } from "./Sponsor";
 import { UserFindManyArgs } from "../../user/base/UserFindManyArgs";
 import { User } from "../../user/base/User";
-import { Player } from "../../player/base/Player";
+import { Athlete } from "../../athlete/base/Athlete";
 import { Competition } from "../../competition/base/Competition";
 import { Team } from "../../team/base/Team";
 import { SponsorService } from "../sponsor.service";
@@ -211,18 +211,18 @@ export class SponsorResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => Player, {
+  @graphql.ResolveField(() => Athlete, {
     nullable: true,
     name: "athlete",
   })
   @nestAccessControl.UseRoles({
-    resource: "Player",
+    resource: "Athlete",
     action: "read",
     possession: "any",
   })
   async resolveFieldAthlete(
     @graphql.Parent() parent: Sponsor
-  ): Promise<Player | null> {
+  ): Promise<Athlete | null> {
     const result = await this.service.getAthlete(parent.id);
 
     if (!result) {

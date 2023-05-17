@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { Player } from "../../player/base/Player";
+import { Athlete } from "../../athlete/base/Athlete";
 import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
 import { Competition } from "../../competition/base/Competition";
@@ -22,11 +22,11 @@ import { User } from "../../user/base/User";
 class Account {
   @ApiProperty({
     required: true,
-    type: () => Player,
+    type: () => Athlete,
   })
   @ValidateNested()
-  @Type(() => Player)
-  athlete?: Player | null;
+  @Type(() => Athlete)
+  athlete?: Athlete | null;
 
   @ApiProperty({
     required: true,

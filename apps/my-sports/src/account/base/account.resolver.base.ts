@@ -27,7 +27,7 @@ import { AccountFindUniqueArgs } from "./AccountFindUniqueArgs";
 import { Account } from "./Account";
 import { CompetitionFindManyArgs } from "../../competition/base/CompetitionFindManyArgs";
 import { Competition } from "../../competition/base/Competition";
-import { Player } from "../../player/base/Player";
+import { Athlete } from "../../athlete/base/Athlete";
 import { Team } from "../../team/base/Team";
 import { User } from "../../user/base/User";
 import { AccountService } from "../account.service";
@@ -199,18 +199,18 @@ export class AccountResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => Player, {
+  @graphql.ResolveField(() => Athlete, {
     nullable: true,
     name: "athlete",
   })
   @nestAccessControl.UseRoles({
-    resource: "Player",
+    resource: "Athlete",
     action: "read",
     possession: "any",
   })
   async resolveFieldAthlete(
     @graphql.Parent() parent: Account
-  ): Promise<Player | null> {
+  ): Promise<Athlete | null> {
     const result = await this.service.getAthlete(parent.id);
 
     if (!result) {

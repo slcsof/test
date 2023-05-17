@@ -1,5 +1,5 @@
 import { Account } from "../account/Account";
-import { Player } from "../player/Player";
+import { Athlete } from "../athlete/Athlete";
 import { Competition } from "../competition/Competition";
 import { JsonValue } from "type-fest";
 import { Sponsor } from "../sponsor/Sponsor";
@@ -7,7 +7,7 @@ import { Team } from "../team/Team";
 
 export type User = {
   accounts?: Array<Account>;
-  athlete?: Player | null;
+  athlete?: Athlete | null;
   competitions?: Array<Competition>;
   createdAt: Date;
   firstName: string | null;

@@ -14,7 +14,7 @@ import {
   Prisma,
   Account,
   Competition,
-  Player,
+  Athlete,
   Team,
   User,
 } from "@prisma/client";
@@ -65,7 +65,7 @@ export class AccountServiceBase {
       .competition(args);
   }
 
-  async getAthlete(parentId: string): Promise<Player | null> {
+  async getAthlete(parentId: string): Promise<Athlete | null> {
     return this.prisma.account
       .findUnique({
         where: { id: parentId },

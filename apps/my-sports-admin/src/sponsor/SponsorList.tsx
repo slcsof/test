@@ -8,7 +8,7 @@ import {
   DateField,
 } from "react-admin";
 import Pagination from "../Components/Pagination";
-import { PLAYER_TITLE_FIELD } from "../player/PlayerTitle";
+import { ATHLETE_TITLE_FIELD } from "../athlete/AthleteTitle";
 import { COMPETITION_TITLE_FIELD } from "../competition/CompetitionTitle";
 import { TEAM_TITLE_FIELD } from "../team/TeamTitle";
 
@@ -22,8 +22,8 @@ export const SponsorList = (props: ListProps): React.ReactElement => {
       pagination={<Pagination />}
     >
       <Datagrid rowClick="show">
-        <ReferenceField label="Athlete" source="player.id" reference="Player">
-          <TextField source={PLAYER_TITLE_FIELD} />
+        <ReferenceField label="Athlete" source="athlete.id" reference="Athlete">
+          <TextField source={ATHLETE_TITLE_FIELD} />
         </ReferenceField>
         <ReferenceField
           label="Competition"

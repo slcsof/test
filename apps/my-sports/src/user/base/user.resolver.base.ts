@@ -31,7 +31,7 @@ import { CompetitionFindManyArgs } from "../../competition/base/CompetitionFindM
 import { Competition } from "../../competition/base/Competition";
 import { SponsorFindManyArgs } from "../../sponsor/base/SponsorFindManyArgs";
 import { Sponsor } from "../../sponsor/base/Sponsor";
-import { Player } from "../../player/base/Player";
+import { Athlete } from "../../athlete/base/Athlete";
 import { Team } from "../../team/base/Team";
 import { UserService } from "../user.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
@@ -232,18 +232,18 @@ export class UserResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => Player, {
+  @graphql.ResolveField(() => Athlete, {
     nullable: true,
     name: "athlete",
   })
   @nestAccessControl.UseRoles({
-    resource: "Player",
+    resource: "Athlete",
     action: "read",
     possession: "any",
   })
   async resolveFieldAthlete(
     @graphql.Parent() parent: User
-  ): Promise<Player | null> {
+  ): Promise<Athlete | null> {
     const result = await this.service.getAthlete(parent.id);
 
     if (!result) {

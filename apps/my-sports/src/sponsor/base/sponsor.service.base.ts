@@ -14,7 +14,7 @@ import {
   Prisma,
   Sponsor,
   User,
-  Player,
+  Athlete,
   Competition,
   Team,
 } from "@prisma/client";
@@ -65,7 +65,7 @@ export class SponsorServiceBase {
       .user(args);
   }
 
-  async getAthlete(parentId: string): Promise<Player | null> {
+  async getAthlete(parentId: string): Promise<Athlete | null> {
     return this.prisma.sponsor
       .findUnique({
         where: { id: parentId },

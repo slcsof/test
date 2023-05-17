@@ -14,7 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { AccountWhereUniqueInput } from "../../account/base/AccountWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { PlayerCreateNestedManyWithoutCompetitionsInput } from "./PlayerCreateNestedManyWithoutCompetitionsInput";
+import { AthleteCreateNestedManyWithoutCompetitionsInput } from "./AthleteCreateNestedManyWithoutCompetitionsInput";
 import { SponsorCreateNestedManyWithoutCompetitionsInput } from "./SponsorCreateNestedManyWithoutCompetitionsInput";
 import { TeamCreateNestedManyWithoutCompetitionsInput } from "./TeamCreateNestedManyWithoutCompetitionsInput";
 import { UserCreateNestedManyWithoutCompetitionsInput } from "./UserCreateNestedManyWithoutCompetitionsInput";
@@ -32,15 +32,15 @@ class CompetitionCreateInput {
 
   @ApiProperty({
     required: false,
-    type: () => PlayerCreateNestedManyWithoutCompetitionsInput,
+    type: () => AthleteCreateNestedManyWithoutCompetitionsInput,
   })
   @ValidateNested()
-  @Type(() => PlayerCreateNestedManyWithoutCompetitionsInput)
+  @Type(() => AthleteCreateNestedManyWithoutCompetitionsInput)
   @IsOptional()
-  @Field(() => PlayerCreateNestedManyWithoutCompetitionsInput, {
+  @Field(() => AthleteCreateNestedManyWithoutCompetitionsInput, {
     nullable: true,
   })
-  athlete?: PlayerCreateNestedManyWithoutCompetitionsInput;
+  athlete?: AthleteCreateNestedManyWithoutCompetitionsInput;
 
   @ApiProperty({
     required: false,

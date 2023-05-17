@@ -241,61 +241,61 @@
   },
   {
     "role": "user",
-    "resource": "Player",
+    "resource": "Athlete",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "manager",
-    "resource": "Player",
+    "resource": "Athlete",
     "action": "read:own",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Player",
+    "resource": "Athlete",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "manager",
-    "resource": "Player",
+    "resource": "Athlete",
     "action": "create:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Player",
+    "resource": "Athlete",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "manager",
-    "resource": "Player",
+    "resource": "Athlete",
     "action": "update:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Player",
+    "resource": "Athlete",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "manager",
-    "resource": "Player",
+    "resource": "Athlete",
     "action": "delete:any",
     "attributes": "*"
   },
   {
     "role": "user",
-    "resource": "Player",
+    "resource": "Athlete",
     "action": "read:any",
     "attributes": "*"
   },
   {
     "role": "manager",
-    "resource": "Player",
+    "resource": "Athlete",
     "action": "read:any",
     "attributes": "*"
   },

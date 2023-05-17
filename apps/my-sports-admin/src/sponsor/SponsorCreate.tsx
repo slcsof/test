@@ -10,7 +10,7 @@ import {
   SelectArrayInput,
 } from "react-admin";
 
-import { PlayerTitle } from "../player/PlayerTitle";
+import { AthleteTitle } from "../athlete/AthleteTitle";
 import { CompetitionTitle } from "../competition/CompetitionTitle";
 import { TeamTitle } from "../team/TeamTitle";
 import { UserTitle } from "../user/UserTitle";
@@ -19,8 +19,8 @@ export const SponsorCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <ReferenceInput source="athlete.id" reference="Player" label="Athlete">
-          <SelectInput optionText={PlayerTitle} />
+        <ReferenceInput source="athlete.id" reference="Athlete" label="Athlete">
+          <SelectInput optionText={AthleteTitle} />
         </ReferenceInput>
         <ReferenceInput
           source="competition.id"

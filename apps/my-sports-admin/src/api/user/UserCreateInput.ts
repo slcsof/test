@@ -1,5 +1,5 @@
 import { AccountCreateNestedManyWithoutUsersInput } from "./AccountCreateNestedManyWithoutUsersInput";
-import { PlayerWhereUniqueInput } from "../player/PlayerWhereUniqueInput";
+import { AthleteWhereUniqueInput } from "../athlete/AthleteWhereUniqueInput";
 import { CompetitionCreateNestedManyWithoutUsersInput } from "./CompetitionCreateNestedManyWithoutUsersInput";
 import { InputJsonValue } from "../../types";
 import { SponsorCreateNestedManyWithoutUsersInput } from "./SponsorCreateNestedManyWithoutUsersInput";
@@ -7,7 +7,7 @@ import { TeamWhereUniqueInput } from "../team/TeamWhereUniqueInput";
 
 export type UserCreateInput = {
   accounts?: AccountCreateNestedManyWithoutUsersInput;
-  athlete?: PlayerWhereUniqueInput | null;
+  athlete?: AthleteWhereUniqueInput | null;
   competitions?: CompetitionCreateNestedManyWithoutUsersInput;
   firstName?: string | null;
   lastName?: string | null;

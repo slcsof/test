@@ -1,5 +1,5 @@
 import { AccountListRelationFilter } from "../account/AccountListRelationFilter";
-import { PlayerWhereUniqueInput } from "../player/PlayerWhereUniqueInput";
+import { AthleteWhereUniqueInput } from "../athlete/AthleteWhereUniqueInput";
 import { CompetitionListRelationFilter } from "../competition/CompetitionListRelationFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
@@ -9,7 +9,7 @@ import { TeamWhereUniqueInput } from "../team/TeamWhereUniqueInput";
 
 export type UserWhereInput = {
   accounts?: AccountListRelationFilter;
-  athlete?: PlayerWhereUniqueInput;
+  athlete?: AthleteWhereUniqueInput;
   competitions?: CompetitionListRelationFilter;
   firstName?: StringNullableFilter;
   id?: StringFilter;

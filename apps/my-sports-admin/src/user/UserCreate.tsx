@@ -13,7 +13,7 @@ import {
 } from "react-admin";
 
 import { AccountTitle } from "../account/AccountTitle";
-import { PlayerTitle } from "../player/PlayerTitle";
+import { AthleteTitle } from "../athlete/AthleteTitle";
 import { CompetitionTitle } from "../competition/CompetitionTitle";
 import { SponsorTitle } from "../sponsor/SponsorTitle";
 import { TeamTitle } from "../team/TeamTitle";
@@ -31,8 +31,8 @@ export const UserCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={AccountTitle} />
         </ReferenceArrayInput>
-        <ReferenceInput source="athlete.id" reference="Player" label="Athlete">
-          <SelectInput optionText={PlayerTitle} />
+        <ReferenceInput source="athlete.id" reference="Athlete" label="Athlete">
+          <SelectInput optionText={AthleteTitle} />
         </ReferenceInput>
         <ReferenceArrayInput
           source="competitions"

@@ -21,10 +21,10 @@ import { AccountList } from "./account/AccountList";
 import { AccountCreate } from "./account/AccountCreate";
 import { AccountEdit } from "./account/AccountEdit";
 import { AccountShow } from "./account/AccountShow";
-import { PlayerList } from "./player/PlayerList";
-import { PlayerCreate } from "./player/PlayerCreate";
-import { PlayerEdit } from "./player/PlayerEdit";
-import { PlayerShow } from "./player/PlayerShow";
+import { AthleteList } from "./athlete/AthleteList";
+import { AthleteCreate } from "./athlete/AthleteCreate";
+import { AthleteEdit } from "./athlete/AthleteEdit";
+import { AthleteShow } from "./athlete/AthleteShow";
 import { SponsorList } from "./sponsor/SponsorList";
 import { SponsorCreate } from "./sponsor/SponsorCreate";
 import { SponsorEdit } from "./sponsor/SponsorEdit";
@@ -84,11 +84,11 @@ const App = (): React.ReactElement => {
           show={AccountShow}
         />
         <Resource
-          name="Player"
-          list={PlayerList}
-          edit={PlayerEdit}
-          create={PlayerCreate}
-          show={PlayerShow}
+          name="Athlete"
+          list={AthleteList}
+          edit={AthleteEdit}
+          create={AthleteCreate}
+          show={AthleteShow}
         />
         <Resource
           name="Sponsor"

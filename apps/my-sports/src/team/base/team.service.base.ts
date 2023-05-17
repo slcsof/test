@@ -13,7 +13,7 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   Team,
-  Player,
+  Athlete,
   Competition,
   Sponsor,
   User,
@@ -57,8 +57,8 @@ export class TeamServiceBase {
 
   async findAthlete(
     parentId: string,
-    args: Prisma.PlayerFindManyArgs
-  ): Promise<Player[]> {
+    args: Prisma.AthleteFindManyArgs
+  ): Promise<Athlete[]> {
     return this.prisma.team
       .findUniqueOrThrow({
         where: { id: parentId },

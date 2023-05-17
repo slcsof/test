@@ -14,7 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Account } from "../../account/base/Account";
 import { ValidateNested, IsOptional, IsDate, IsString } from "class-validator";
 import { Type } from "class-transformer";
-import { Player } from "../../player/base/Player";
+import { Athlete } from "../../athlete/base/Athlete";
 import { Sponsor } from "../../sponsor/base/Sponsor";
 import { Team } from "../../team/base/Team";
 import { User } from "../../user/base/User";
@@ -31,12 +31,12 @@ class Competition {
 
   @ApiProperty({
     required: false,
-    type: () => [Player],
+    type: () => [Athlete],
   })
   @ValidateNested()
-  @Type(() => Player)
+  @Type(() => Athlete)
   @IsOptional()
-  athlete?: Array<Player>;
+  athlete?: Array<Athlete>;
 
   @ApiProperty({
     required: true,

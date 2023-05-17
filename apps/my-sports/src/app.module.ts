@@ -5,7 +5,7 @@ import { UserModule } from "./user/user.module";
 import { TeamModule } from "./team/team.module";
 import { CompetitionModule } from "./competition/competition.module";
 import { AccountModule } from "./account/account.module";
-import { PlayerModule } from "./player/player.module";
+import { AthleteModule } from "./athlete/athlete.module";
 import { SponsorModule } from "./sponsor/sponsor.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
@@ -28,7 +28,7 @@ import { AuthModule } from "./auth/auth.module";
     TeamModule,
     CompetitionModule,
     AccountModule,
-    PlayerModule,
+    AthleteModule,
     SponsorModule,
     HealthModule,
     PrismaModule,

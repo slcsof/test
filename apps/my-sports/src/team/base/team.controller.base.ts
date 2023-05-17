@@ -27,9 +27,9 @@ import { TeamWhereUniqueInput } from "./TeamWhereUniqueInput";
 import { TeamFindManyArgs } from "./TeamFindManyArgs";
 import { TeamUpdateInput } from "./TeamUpdateInput";
 import { Team } from "./Team";
-import { PlayerFindManyArgs } from "../../player/base/PlayerFindManyArgs";
-import { Player } from "../../player/base/Player";
-import { PlayerWhereUniqueInput } from "../../player/base/PlayerWhereUniqueInput";
+import { AthleteFindManyArgs } from "../../athlete/base/AthleteFindManyArgs";
+import { Athlete } from "../../athlete/base/Athlete";
+import { AthleteWhereUniqueInput } from "../../athlete/base/AthleteWhereUniqueInput";
 import { CompetitionFindManyArgs } from "../../competition/base/CompetitionFindManyArgs";
 import { Competition } from "../../competition/base/Competition";
 import { CompetitionWhereUniqueInput } from "../../competition/base/CompetitionWhereUniqueInput";
@@ -237,17 +237,17 @@ export class TeamControllerBase {
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @common.Get("/:id/athlete")
-  @ApiNestedQuery(PlayerFindManyArgs)
+  @ApiNestedQuery(AthleteFindManyArgs)
   @nestAccessControl.UseRoles({
-    resource: "Player",
+    resource: "Athlete",
     action: "read",
     possession: "any",
   })
   async findManyAthlete(
     @common.Req() request: Request,
     @common.Param() params: TeamWhereUniqueInput
-  ): Promise<Player[]> {
-    const query = plainToClass(PlayerFindManyArgs, request.query);
+  ): Promise<Athlete[]> {
+    const query = plainToClass(AthleteFindManyArgs, request.query);
     const results = await this.service.findAthlete(params.id, {
       ...query,
       select: {
@@ -280,7 +280,7 @@ export class TeamControllerBase {
   })
   async connectAthlete(
     @common.Param() params: TeamWhereUniqueInput,
-    @common.Body() body: PlayerWhereUniqueInput[]
+    @common.Body() body: AthleteWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       athlete: {
@@ -302,7 +302,7 @@ export class TeamControllerBase {
   })
   async updateAthlete(
     @common.Param() params: TeamWhereUniqueInput,
-    @common.Body() body: PlayerWhereUniqueInput[]
+    @common.Body() body: AthleteWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       athlete: {
@@ -324,7 +324,7 @@ export class TeamControllerBase {
   })
   async disconnectAthlete(
     @common.Param() params: TeamWhereUniqueInput,
-    @common.Body() body: PlayerWhereUniqueInput[]
+    @common.Body() body: AthleteWhereUniqueInput[]
   ): Promise<void> {
     const data = {
       athlete: {

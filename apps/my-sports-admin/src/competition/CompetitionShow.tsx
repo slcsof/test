@@ -11,7 +11,7 @@ import {
   Datagrid,
 } from "react-admin";
 
-import { PLAYER_TITLE_FIELD } from "../player/PlayerTitle";
+import { ATHLETE_TITLE_FIELD } from "../athlete/AthleteTitle";
 import { COMPETITION_TITLE_FIELD } from "./CompetitionTitle";
 import { TEAM_TITLE_FIELD } from "../team/TeamTitle";
 import { ACCOUNT_TITLE_FIELD } from "../account/AccountTitle";
@@ -38,10 +38,10 @@ export const CompetitionShow = (props: ShowProps): React.ReactElement => {
           <Datagrid rowClick="show">
             <ReferenceField
               label="Athlete"
-              source="player.id"
-              reference="Player"
+              source="athlete.id"
+              reference="Athlete"
             >
-              <TextField source={PLAYER_TITLE_FIELD} />
+              <TextField source={ATHLETE_TITLE_FIELD} />
             </ReferenceField>
             <ReferenceField
               label="Competition"

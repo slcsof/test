@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { PlayerWhereUniqueInput } from "../../player/base/PlayerWhereUniqueInput";
+import { AthleteWhereUniqueInput } from "../../athlete/base/AthleteWhereUniqueInput";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { CompetitionCreateNestedManyWithoutAccountsInput } from "./CompetitionCreateNestedManyWithoutAccountsInput";
@@ -22,12 +22,12 @@ import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
 class AccountCreateInput {
   @ApiProperty({
     required: true,
-    type: () => PlayerWhereUniqueInput,
+    type: () => AthleteWhereUniqueInput,
   })
   @ValidateNested()
-  @Type(() => PlayerWhereUniqueInput)
-  @Field(() => PlayerWhereUniqueInput)
-  athlete!: PlayerWhereUniqueInput | null;
+  @Type(() => AthleteWhereUniqueInput)
+  @Field(() => AthleteWhereUniqueInput)
+  athlete!: AthleteWhereUniqueInput | null;
 
   @ApiProperty({
     required: true,

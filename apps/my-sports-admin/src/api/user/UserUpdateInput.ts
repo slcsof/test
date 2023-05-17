@@ -1,5 +1,5 @@
 import { AccountUpdateManyWithoutUsersInput } from "./AccountUpdateManyWithoutUsersInput";
-import { PlayerWhereUniqueInput } from "../player/PlayerWhereUniqueInput";
+import { AthleteWhereUniqueInput } from "../athlete/AthleteWhereUniqueInput";
 import { CompetitionUpdateManyWithoutUsersInput } from "./CompetitionUpdateManyWithoutUsersInput";
 import { InputJsonValue } from "../../types";
 import { SponsorUpdateManyWithoutUsersInput } from "./SponsorUpdateManyWithoutUsersInput";
@@ -7,7 +7,7 @@ import { TeamWhereUniqueInput } from "../team/TeamWhereUniqueInput";
 
 export type UserUpdateInput = {
   accounts?: AccountUpdateManyWithoutUsersInput;
-  athlete?: PlayerWhereUniqueInput | null;
+  athlete?: AthleteWhereUniqueInput | null;
   competitions?: CompetitionUpdateManyWithoutUsersInput;
   firstName?: string | null;
   lastName?: string | null;
